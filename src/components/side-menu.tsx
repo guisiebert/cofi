@@ -13,19 +13,22 @@ import Image from "next/image"
 import Link from "next/link"
 import { Separator } from "./ui/separator"
 import { Button } from "./ui/button"
+import { GetTokensInWallet } from "@/utils/getTokensInWallet"
+import { GetMaticInWallet } from "@/utils/old/GetMaticInWallet"
+import { useAccount } from "wagmi"
 
 export default function SideMenu() {
   const router = useRouter()
 
-  // const beansBalance = getTokensInWallet("beans");
-  // const cupsBalance = getTokensInWallet("cups");
-  // const maticBalance = GetMaticInWallet();
-  // const userAddress = useAccount().address;
+  const beansBalance = GetTokensInWallet("beans")
+  const cupsBalance = GetTokensInWallet("cups")
+  const maticBalance = GetMaticInWallet()
+  const userAddress = useAccount().address
 
-  const beansBalance = 777
-  const cupsBalance = 777
-  const maticBalance = 777
-  const userAddress = "7x777777777777"
+  // const beansBalance = 777
+  // const cupsBalance = 777
+  // const maticBalance = 777
+  // const userAddress = "7x777777777777"
 
   return (
     <Sheet>
@@ -116,7 +119,7 @@ export default function SideMenu() {
 
           <div className="flex flex-col items-center gap-1">
             <div className="bg-matic rounded-full border-[3px] border-solid border-emerald-950">
-              <Image src={"/matic.svg"} alt="" height={45} width={45} />
+              <Image src={"/eth-logo.png"} alt="" height={45} width={45} />
             </div>
             <p className="font-bold">{maticBalance.toFixed(2)} </p>
           </div>

@@ -14,7 +14,7 @@ import Link from "next/link"
 import GetTestTokensButton from "@/components/Web3Interactors/GetTestTokensButton"
 import { GetTokensInSwap } from "@/utils/GetTokensInSwap"
 import { Separator } from "@/components/ui/separator"
-import { getTokensInWallet } from "@/utils/getTokensInWallet"
+import { GetTokensInWallet } from "@/utils/getTokensInWallet"
 import { GetTokensLockedInFarm } from "@/utils/old/GetTokensLockedInFarm"
 import BuySellTokensButton from "@/components/BuySellTokensButton"
 
@@ -26,7 +26,7 @@ export default function MarketCard() {
       address: COFIBEAN_CONTRACT,
       abi: COFITOKEN_ABI,
       args: [COFIBEAN_SWAP],
-    }).data
+    }).data as bigint
   )
   const maticInBeanSwapContract = useBalance({ address: COFIBEAN_SWAP }).data
     ?.formatted
@@ -143,7 +143,7 @@ export default function MarketCard() {
                 <Separator className="h-1" />
                 <div className="flex justify-between">
                   <p>Beans in your wallet: </p>
-                  <p>{getTokensInWallet("beans").toFixed(0)} beans</p>
+                  <p>{GetTokensInWallet("beans").toFixed(0)} beans</p>
                 </div>
                 <div className="flex justify-between">
                   <p>Beans you invested: </p>
@@ -182,7 +182,7 @@ export default function MarketCard() {
                 <Separator className="h-1" />
                 <div className="flex justify-between">
                   <p>Cups in your wallet: </p>
-                  <p>{getTokensInWallet("cups").toFixed(0)} cups</p>
+                  <p>{GetTokensInWallet("cups").toFixed(0)} cups</p>
                 </div>
                 <div className="flex justify-between">
                   <p>Cups you invested: </p>

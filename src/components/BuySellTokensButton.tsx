@@ -35,7 +35,7 @@ import {
 } from "@/contracts/addressList"
 import { BaseError, parseEther } from "viem"
 import { GetMaticInWallet } from "@/utils/old/GetMaticInWallet"
-import { getTokensInWallet } from "@/utils/getTokensInWallet"
+import { GetTokensInWallet } from "@/utils/getTokensInWallet"
 import { Separator } from "@radix-ui/react-separator"
 import { Toaster, toast } from "sonner"
 import { ApproveButton } from "./ApproveButton"
@@ -141,7 +141,7 @@ function BuySellForm(props: BuySellFormProps) {
   const [qty, setQty] = useState<number>(0)
   const [totalPrice, setTotalPrice] = useState<number>(0)
   const maticBalanceInWallet = GetMaticInWallet()
-  const itemBalanceInWallet = Number(getTokensInWallet(inputItem))
+  const itemBalanceInWallet = Number(GetTokensInWallet(inputItem))
 
   const userAddress = useAccount().address
   const hasAllowance = CheckIfAllowance(inputItem, userAddress!, "swap")

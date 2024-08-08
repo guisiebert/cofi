@@ -6,7 +6,7 @@ import {
 } from "@/contracts/addressList"
 import { parseBigInt } from "@/utils/parseBigInt"
 
-export function getTokensInWallet(
+export function GetTokensInWallet(
   inputItem: "beans" | "cups" | "matic" | "eth"
 ) {
   const userAddress = useAccount().address

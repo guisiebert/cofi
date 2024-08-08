@@ -23,7 +23,7 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useMediaQuery } from "@react-hook/media-query"
 import CapitalizeFirstLetter from "@/utils/capitalizeFirstLetter"
-import { getTokensInWallet } from "@/utils/getTokensInWallet"
+import { GetTokensInWallet } from "@/utils/getTokensInWallet"
 import {
   type BaseError,
   useWriteContract,
@@ -118,7 +118,7 @@ function DepositForm(props: DepositFormProps) {
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({ hash })
   const { inputItem } = props
-  const itemBalance = getTokensInWallet(inputItem)
+  const itemBalance = GetTokensInWallet(inputItem)
   const [qty, setQty] = useState(0)
 
   // Error Toast

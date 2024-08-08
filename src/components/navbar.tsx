@@ -7,12 +7,12 @@ import { ConnectButton } from "@rainbow-me/rainbowkit"
 import { Button } from "./ui/button"
 import Link from "next/link"
 import SideMenu from "./side-menu"
-import { getTokensInWallet } from "@/utils/getTokensInWallet"
+import { GetTokensInWallet } from "@/utils/getTokensInWallet"
 
 export default function Navbar() {
   const router = useRouter()
-  const beansBalance = getTokensInWallet("beans")
-  const cupsBalance = getTokensInWallet("cups")
+  const beansBalance = GetTokensInWallet("beans")
+  const cupsBalance = GetTokensInWallet("cups")
 
   return (
     <header // HEADER
